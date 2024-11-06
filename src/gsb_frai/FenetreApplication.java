@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.sql.*;
 
 /**
  *
@@ -22,7 +23,25 @@ public class FenetreApplication extends javax.swing.JFrame {
         
         initComponents();
     }
-
+    public void listerUtilisateur(){
+        ArrayList<Utilisateur> rs = utDAO.getLesUtilisateurs();
+        DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
+        tableModel.setRowCount(0);
+        //aide du code de rémy
+        if(!rs.isEmpty()){
+            for (Utilisateur liv : rs) {
+                Object[] livre = new Object[3];
+                livre[0] = liv.getLogin();
+                livre[1] = liv.getPassword();
+                tableModel.addRow(livre); 
+            }
+        }    
+        else{
+            System.out.print("Pas de visiteur");
+        }
+        tableUtilisateur.setModel(tableModel);
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -169,24 +188,9 @@ public class FenetreApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifybtnActionPerformed
 
     private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
-        JOptionPane.showMessageDialog(this, "réussie");
+        JOptionPane.showMessageDialog(this, "ut");
+        this.tableUtilisateur.isVisible();
         
-        ArrayList<Utilisateur> rs = utDAO.getLesUtilisateurs();
-        DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
-        tableModel.setRowCount(0);
-        //aide du code de rémy
-        if(!rs.isEmpty()){
-            for (Utilisateur liv : rs) {
-                Object[] livre = new Object[3];
-                livre[0] = liv.getLogin();
-                livre[1] = liv.getPassword();
-                tableModel.addRow(livre); 
-            }
-        }    
-        else{
-            System.out.print("Pas de visiteur");
-        }
-        tableUtilisateur.setModel(tableModel);
     }//GEN-LAST:event_ConsultActionPerformed
 
     /**
