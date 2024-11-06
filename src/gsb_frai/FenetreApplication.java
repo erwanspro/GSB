@@ -4,6 +4,10 @@
  */
 package gsb_frai;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cbgam
@@ -35,7 +39,7 @@ public class FenetreApplication extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         Searchbtn = new javax.swing.JButton();
         Modifybtn = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        JBtConsult = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -87,10 +91,10 @@ public class FenetreApplication extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Add new user");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        JBtConsult.setText("Add new user");
+        JBtConsult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                JBtConsultActionPerformed(evt);
             }
         });
 
@@ -111,7 +115,7 @@ public class FenetreApplication extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Modifybtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Searchbtn)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(JBtConsult, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jLabel2)
                         .addGap(9, 9, 9))
@@ -132,7 +136,7 @@ public class FenetreApplication extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(Modifybtn)
                         .addGap(33, 33, 33)
-                        .addComponent(jButton4))
+                        .addComponent(JBtConsult))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -153,16 +157,23 @@ public class FenetreApplication extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void JBtConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConsultActionPerformed
+        JOptionPane.showMessageDialog(this, "Connexion réussie");
+        
+        ArrayList<Utilisateur> constAll = utdao;
+        DefaultListModel listModel = new DefaultListModel();
+        for (Utilisateur cons : consAll) {
+            listModel.addElement(cons);
+        }
+        //listCategories.setModel(listModel);
+    }//GEN-LAST:event_JBtConsultActionPerformed
 
     private void ModifybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifybtnActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Connexion réussie");
     }//GEN-LAST:event_ModifybtnActionPerformed
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Connexion réussie");
     }//GEN-LAST:event_SearchbtnActionPerformed
 
     /**
@@ -204,10 +215,10 @@ public class FenetreApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBtConsult;
     private javax.swing.JButton Modifybtn;
     private javax.swing.JButton Searchbtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -215,4 +226,6 @@ public class FenetreApplication extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+    AccesBdD connectBdd = new AccesBdD();
+    UtilisateurDAO utdao = new UtilisateurDAO(connectBdd.getConnexion());
 }
