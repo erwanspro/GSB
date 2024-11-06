@@ -4,6 +4,8 @@
  */
 package gsb_frai;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cbgam
@@ -135,7 +137,11 @@ public class FenetreLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtCreateActionPerformed
 
     private void JBtConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConnectActionPerformed
-        // TODO add your handling code here:
+        if (connectBdd.getConnexion()!= null){
+            JOptionPane.showMessageDialog(this, "Connexion réussie");
+        }
+        this.dispose();
+        application.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_JBtConnectActionPerformed
 
     /**
@@ -190,5 +196,6 @@ public class FenetreLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-    Utilisateur connect = new Utilisateur(JTLogin,JTMdp);
+    AccesBdD connectBdd = new AccesBdD();
+    FenetreApplication application = new FenetreApplication();
 }
