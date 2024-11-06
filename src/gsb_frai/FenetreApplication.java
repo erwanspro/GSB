@@ -7,17 +7,19 @@ package gsb_frai;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author cbgam
  */
 public class FenetreApplication extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form fenetre_recherche
      */
     public FenetreApplication() {
+        
         initComponents();
     }
 
@@ -37,9 +39,9 @@ public class FenetreApplication extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        Searchbtn = new javax.swing.JButton();
+        Consult = new javax.swing.JButton();
         Modifybtn = new javax.swing.JButton();
-        JBtConsult = new javax.swing.JButton();
+        AddNew = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -77,10 +79,10 @@ public class FenetreApplication extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Vos différentes option :");
 
-        Searchbtn.setText("Consult all user");
-        Searchbtn.addActionListener(new java.awt.event.ActionListener() {
+        Consult.setText("Consult all user");
+        Consult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchbtnActionPerformed(evt);
+                ConsultActionPerformed(evt);
             }
         });
 
@@ -91,10 +93,10 @@ public class FenetreApplication extends javax.swing.JFrame {
             }
         });
 
-        JBtConsult.setText("Add new user");
-        JBtConsult.addActionListener(new java.awt.event.ActionListener() {
+        AddNew.setText("Add new user");
+        AddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBtConsultActionPerformed(evt);
+                AddNewActionPerformed(evt);
             }
         });
 
@@ -114,8 +116,8 @@ public class FenetreApplication extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Modifybtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Searchbtn)
-                                    .addComponent(JBtConsult, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Consult)
+                                    .addComponent(AddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jLabel2)
                         .addGap(9, 9, 9))
@@ -132,11 +134,11 @@ public class FenetreApplication extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(Searchbtn)
+                        .addComponent(Consult)
                         .addGap(37, 37, 37)
                         .addComponent(Modifybtn)
                         .addGap(33, 33, 33)
-                        .addComponent(JBtConsult))
+                        .addComponent(AddNew))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -157,24 +159,35 @@ public class FenetreApplication extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBtConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConsultActionPerformed
-        JOptionPane.showMessageDialog(this, "Connexion réussie");
+    private void AddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewActionPerformed
+        JOptionPane.showMessageDialog(this, "Ajout réussie");
         
-        ArrayList<Utilisateur> constAll = utdao;
-        DefaultListModel listModel = new DefaultListModel();
-        for (Utilisateur cons : consAll) {
-            listModel.addElement(cons);
-        }
-        //listCategories.setModel(listModel);
-    }//GEN-LAST:event_JBtConsultActionPerformed
+    }//GEN-LAST:event_AddNewActionPerformed
 
     private void ModifybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifybtnActionPerformed
-        JOptionPane.showMessageDialog(this, "Connexion réussie");
+        JOptionPane.showMessageDialog(this, "Modification réussie");
     }//GEN-LAST:event_ModifybtnActionPerformed
 
-    private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-        JOptionPane.showMessageDialog(this, "Connexion réussie");
-    }//GEN-LAST:event_SearchbtnActionPerformed
+    private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
+        JOptionPane.showMessageDialog(this, "réussie");
+        
+        ArrayList<Utilisateur> rs = utDAO.getLesUtilisateurs();
+        DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
+        tableModel.setRowCount(0);
+        //aide du code de rémy
+        if(!rs.isEmpty()){
+            for (Utilisateur liv : rs) {
+                Object[] livre = new Object[3];
+                livre[0] = liv.getLogin();
+                livre[1] = liv.getPassword();
+                tableModel.addRow(livre); 
+            }
+        }    
+        else{
+            System.out.print("Pas de visiteur");
+        }
+        tableUtilisateur.setModel(tableModel);
+    }//GEN-LAST:event_ConsultActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,9 +228,9 @@ public class FenetreApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBtConsult;
+    private javax.swing.JButton AddNew;
+    private javax.swing.JButton Consult;
     private javax.swing.JButton Modifybtn;
-    private javax.swing.JButton Searchbtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -226,6 +239,7 @@ public class FenetreApplication extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+    private javax.swing.JTable tableUtilisateur;
     AccesBdD connectBdd = new AccesBdD();
-    UtilisateurDAO utdao = new UtilisateurDAO(connectBdd.getConnexion());
+    UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
 }

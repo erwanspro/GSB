@@ -68,8 +68,8 @@
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="Modifybtn" min="-2" pref="111" max="-2" attributes="0"/>
-                                      <Component id="Searchbtn" min="-2" max="-2" attributes="0"/>
-                                      <Component id="JBtConsult" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
+                                      <Component id="Consult" min="-2" max="-2" attributes="0"/>
+                                      <Component id="AddNew" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -93,11 +93,11 @@
                           <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="Searchbtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="Consult" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="Modifybtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="JBtConsult" min="-2" max="-2" attributes="0"/>
+                          <Component id="AddNew" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -164,12 +164,12 @@
             <Property name="text" type="java.lang.String" value="Vos diff&#xe9;rentes option :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Searchbtn">
+        <Component class="javax.swing.JButton" name="Consult">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consult all user"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchbtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Modifybtn">
@@ -180,12 +180,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifybtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="JBtConsult">
+        <Component class="javax.swing.JButton" name="AddNew">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add new user"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtConsultActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddNewActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
