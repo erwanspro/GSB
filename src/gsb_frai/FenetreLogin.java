@@ -5,6 +5,7 @@
 package gsb_frai;
 
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /**
  *

@@ -189,7 +189,7 @@ public class FenetreApplication extends javax.swing.JFrame {
 
     private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
         JOptionPane.showMessageDialog(this, "ut");
-        this.tableUtilisateur.isVisible();
+       
         
     }//GEN-LAST:event_ConsultActionPerformed
 
