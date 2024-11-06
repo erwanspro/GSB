@@ -75,5 +75,16 @@ public class UtilisateurDAO {
         return rowsDeleted;
                
     }
+     public int modifNom(String id, String nom) throws SQLException
+    {
+        String sql = "UPDATE visiteur SET nom = ? Where id = ?";
+        int  rowsDeleted = 0;
+        PreparedStatement statement = connexion.prepareStatement(sql);
+        statement.setString(2, id);
+        statement.setString(1, nom);
+        rowsDeleted = statement.executeUpdate();
+        return rowsDeleted;
+               
+    }
     
 }
