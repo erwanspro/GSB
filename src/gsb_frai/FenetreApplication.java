@@ -9,6 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.JFrame;
 
 /**
  *
@@ -16,11 +17,12 @@ import java.sql.*;
  */
 public class FenetreApplication extends javax.swing.JFrame {
     
+    
     /**
      * Creates new form fenetre_recherche
      */
+    
     public FenetreApplication() {
-        
         initComponents();
     }
     public void listerUtilisateur(){
@@ -51,7 +53,6 @@ public class FenetreApplication extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -60,9 +61,6 @@ public class FenetreApplication extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         Consult = new javax.swing.JButton();
         Modifybtn = new javax.swing.JButton();
-        AddNew = new javax.swing.JButton();
-
-        jButton1.setText("jButton1");
 
         jLabel3.setText("jLabel3");
 
@@ -112,13 +110,6 @@ public class FenetreApplication extends javax.swing.JFrame {
             }
         });
 
-        AddNew.setText("Add new user");
-        AddNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddNewActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -135,13 +126,12 @@ public class FenetreApplication extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Modifybtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Consult)
-                                    .addComponent(AddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Consult))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jLabel2)
                         .addGap(9, 9, 9))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,10 +144,8 @@ public class FenetreApplication extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
                         .addComponent(Consult)
-                        .addGap(37, 37, 37)
-                        .addComponent(Modifybtn)
-                        .addGap(33, 33, 33)
-                        .addComponent(AddNew))
+                        .addGap(58, 58, 58)
+                        .addComponent(Modifybtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -178,18 +166,11 @@ public class FenetreApplication extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewActionPerformed
-        JOptionPane.showMessageDialog(this, "Ajout réussie");
-        
-    }//GEN-LAST:event_AddNewActionPerformed
-
     private void ModifybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifybtnActionPerformed
         JOptionPane.showMessageDialog(this, "Modification réussie");
     }//GEN-LAST:event_ModifybtnActionPerformed
 
     private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
-        JOptionPane.showMessageDialog(this, "ut");
-       
         
     }//GEN-LAST:event_ConsultActionPerformed
 
@@ -232,10 +213,8 @@ public class FenetreApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddNew;
     private javax.swing.JButton Consult;
     private javax.swing.JButton Modifybtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -246,4 +225,5 @@ public class FenetreApplication extends javax.swing.JFrame {
     private javax.swing.JTable tableUtilisateur;
     AccesBdD connectBdd = new AccesBdD();
     UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
+    private JFrame fenetreModif;
 }
