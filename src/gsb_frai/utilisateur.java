@@ -1,5 +1,5 @@
 package gsb_frai;
-public class utilisateur {
+public class Utilisateur {
     //test
 
 }
