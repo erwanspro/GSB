@@ -160,7 +160,8 @@ public class FenetreApplication extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifActionPerformed
-        JOptionPane.showMessageDialog(this, "Modification réussie");
+        this.setVisible(false);
+        modify.setVisible(true);
     }//GEN-LAST:event_ModifActionPerformed
 
     private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
@@ -223,4 +224,5 @@ public class FenetreApplication extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     AccesBdD connectBdd = new AccesBdD();
     FenetreConsult consult = new FenetreConsult();
+    FenetreModify modify = new FenetreModify();
 }
