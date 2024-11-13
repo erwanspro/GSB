@@ -62,7 +62,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="ReConnect" alignment="0" pref="125" max="32767" attributes="0"/>
+                                      <Component id="Disconnect" alignment="0" pref="125" max="32767" attributes="0"/>
                                       <Component id="Modif" alignment="0" max="32767" attributes="0"/>
                                       <Component id="Consult" alignment="0" max="32767" attributes="0"/>
                                   </Group>
@@ -92,7 +92,7 @@
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           <Component id="Modif" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="ReConnect" min="-2" max="-2" attributes="0"/>
+                          <Component id="Disconnect" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -175,12 +175,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ReConnect">
+        <Component class="javax.swing.JButton" name="Disconnect">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Reconnect page"/>
+            <Property name="text" type="java.lang.String" value="Disconnect page"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReConnectActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisconnectActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

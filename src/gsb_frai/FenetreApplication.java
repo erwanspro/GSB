@@ -25,24 +25,6 @@ public class FenetreApplication extends javax.swing.JFrame {
     public FenetreApplication() {
         initComponents();
     }
-    public void listerUtilisateur(){
-        ArrayList<Utilisateur> rs = utDAO.getLesUtilisateurs();
-        DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
-        tableModel.setRowCount(0);
-        //aide du code de rémy
-        if(!rs.isEmpty()){
-            for (Utilisateur liv : rs) {
-                Object[] livre = new Object[3];
-                livre[0] = liv.getLogin();
-                livre[1] = liv.getPassword();
-                tableModel.addRow(livre); 
-            }
-        }    
-        else{
-            System.out.print("Pas de visiteur");
-        }
-        tableUtilisateur.setModel(tableModel);
-    }
         
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +43,7 @@ public class FenetreApplication extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         Consult = new javax.swing.JButton();
         Modif = new javax.swing.JButton();
-        ReConnect = new javax.swing.JButton();
+        Disconnect = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -111,10 +93,10 @@ public class FenetreApplication extends javax.swing.JFrame {
             }
         });
 
-        ReConnect.setText("Reconnect page");
-        ReConnect.addActionListener(new java.awt.event.ActionListener() {
+        Disconnect.setText("Disconnect page");
+        Disconnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReConnectActionPerformed(evt);
+                DisconnectActionPerformed(evt);
             }
         });
 
@@ -133,7 +115,7 @@ public class FenetreApplication extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(43, 43, 43)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ReConnect, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(Disconnect, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                                     .addComponent(Modif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Consult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
@@ -156,7 +138,7 @@ public class FenetreApplication extends javax.swing.JFrame {
                         .addGap(58, 58, 58)
                         .addComponent(Modif)
                         .addGap(58, 58, 58)
-                        .addComponent(ReConnect))
+                        .addComponent(Disconnect))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -182,13 +164,14 @@ public class FenetreApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifActionPerformed
 
     private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
-        
+        this.dispose();
+        consult.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_ConsultActionPerformed
 
-    private void ReConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReConnectActionPerformed
+    private void DisconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnectActionPerformed
         this.dispose();
         //login.setVisible(rootPaneCheckingEnabled);
-    }//GEN-LAST:event_ReConnectActionPerformed
+    }//GEN-LAST:event_DisconnectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,8 +213,8 @@ public class FenetreApplication extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Consult;
+    private javax.swing.JButton Disconnect;
     private javax.swing.JButton Modif;
-    private javax.swing.JButton ReConnect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -239,9 +222,8 @@ public class FenetreApplication extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
-    private javax.swing.JTable tableUtilisateur;
     //FenetreLogin login = new FenetreLogin();
     AccesBdD connectBdd = new AccesBdD();
-    UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
+    FenetreConsult consult = new FenetreConsult();
     //private JFrame fenetreModif;
 }
