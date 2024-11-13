@@ -12,12 +12,20 @@ import java.sql.*;
  * @author cbgam
  */
 public class FenetreLogin extends javax.swing.JFrame {
+    
+    private AccesBdD connectBdd;
+    private FenetreApplication application;
+    private UtilisateurDAO uDAO;
 
     /**
      * Creates new form NewJFrame
      */
     public FenetreLogin() {
+        
         initComponents();
+        connectBdd = new AccesBdD();
+        application = new FenetreApplication();
+        uDAO = new UtilisateurDAO(connectBdd.getConnexion());
     }
 
     /**
@@ -182,6 +190,4 @@ public class FenetreLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-    AccesBdD connectBdd = new AccesBdD();
-    FenetreApplication application = new FenetreApplication();
 }
