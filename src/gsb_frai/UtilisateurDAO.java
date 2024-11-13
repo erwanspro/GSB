@@ -158,5 +158,17 @@ public class UtilisateurDAO {
         return rowsDeleted;
                
     }
+     public boolean loginConnexion (String login, String mdp)
+     {
+         try {
+            String sql = "SELECT * FROM visiteur";
+            Statement statement = connexion.createStatement(sql);
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(AccesBdD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ;
+        
+     }
     
 }
