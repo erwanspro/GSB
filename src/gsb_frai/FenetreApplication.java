@@ -93,7 +93,7 @@ public class FenetreApplication extends javax.swing.JFrame {
             }
         });
 
-        Disconnect.setText("Disconnect page");
+        Disconnect.setText("Disconnect");
         Disconnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DisconnectActionPerformed(evt);
@@ -134,11 +134,11 @@ public class FenetreApplication extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(Consult)
-                        .addGap(58, 58, 58)
-                        .addComponent(Modif)
-                        .addGap(58, 58, 58)
-                        .addComponent(Disconnect))
+                        .addComponent(Consult, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(Modif, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(Disconnect, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))

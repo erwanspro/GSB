@@ -121,10 +121,13 @@ public class FenetreLogin extends javax.swing.JFrame {
 
     private void JBtConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConnectActionPerformed
         if (connectBdd.getConnexion()!= null){
-            JOptionPane.showMessageDialog(this, "Connexion réussie");
+            this.dispose();
+            application.setVisible(rootPaneCheckingEnabled);
         }
-        this.dispose();
-        application.setVisible(rootPaneCheckingEnabled);
+        else if(connectBdd.getConnexion()== null){
+            JOptionPane.showMessageDialog(this, "Connexion impossible login ou mot de passe incorecte");
+        }
+        
         
     }//GEN-LAST:event_JBtConnectActionPerformed
 
