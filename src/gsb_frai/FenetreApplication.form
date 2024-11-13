@@ -61,9 +61,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Modifybtn" min="-2" pref="111" max="-2" attributes="0"/>
-                                      <Component id="Consult" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="ReConnect" alignment="0" pref="125" max="32767" attributes="0"/>
+                                      <Component id="Modif" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Consult" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -89,7 +90,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="Consult" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="Modifybtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="Modif" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Component id="ReConnect" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -164,12 +167,20 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Modifybtn">
+        <Component class="javax.swing.JButton" name="Modif">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modify user"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifybtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="ReConnect">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reconnect page"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReConnectActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

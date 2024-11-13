@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class AccesBdD {
     
-    private final String dbURL="jdbc:mysql://localhost:3306/bibliotheque";
+    private final String dbURL="jdbc:mysql://localhost:3306/gsb_frais_structure";
     private final String userName = "root";
     private final String password = "";
     private Connection connexion;

@@ -143,6 +143,7 @@ public class FenetreLogin extends javax.swing.JFrame {
         }
         this.dispose();
         application.setVisible(rootPaneCheckingEnabled);
+        
     }//GEN-LAST:event_JBtConnectActionPerformed
 
     /**
