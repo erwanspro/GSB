@@ -161,7 +161,7 @@ public class UtilisateurDAO {
      public boolean loginConnexion (String login, String mdp)
      {
         ResultSet result = null;
-        String sql = "SELECT * FROM visiteur";
+        String sql = "SELECT login,mdp FROM employe";
         try {
             Statement statement;
             statement = connexion.createStatement();
@@ -170,7 +170,7 @@ public class UtilisateurDAO {
         } catch (SQLException ex) {
             Logger.getLogger(AccesBdD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return result;
+        return true;
         
      }
     
