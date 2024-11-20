@@ -33,16 +33,16 @@ public class FenetreConsult extends javax.swing.JFrame {
         tableModel.setRowCount(0);
         if(!rs.isEmpty()){
             for (Utilisateur util : rs) {
-                Object[] Utilisateur = new Object[8];
+                Object[] Utilisateur = new Object[9];
                 Utilisateur[0] = util.getId();
-                Utilisateur[0] = util.getNom();
-                Utilisateur[1] = util.getPrenom();
-                Utilisateur[2] = util.getLogin();
-                Utilisateur[3] = util.getPassword();
-                Utilisateur[4] = util.getAdresse();
-                Utilisateur[5] = util.getCp();
-                Utilisateur[6] = util.getVille();
-                Utilisateur[7] = util.getDateEmbauche();
+                Utilisateur[1] = util.getNom();
+                Utilisateur[2] = util.getPrenom();
+                Utilisateur[3] = util.getLogin();
+                Utilisateur[4] = util.getPassword();
+                Utilisateur[5] = util.getAdresse();
+                Utilisateur[6] = util.getCp();
+                Utilisateur[7] = util.getVille();
+                Utilisateur[8] = util.getDateEmbauche();
                 tableModel.addRow(Utilisateur); 
             }
         }    

@@ -20,6 +20,7 @@ public class FenetreModify extends javax.swing.JFrame {
     public FenetreModify(JFrame parent) {
         this.parentFrame = parent;
         initComponents();
+        listerUtilisateur();
     }
 
     private FenetreModify() {
@@ -30,13 +31,19 @@ public class FenetreModify extends javax.swing.JFrame {
         ArrayList<Utilisateur> rs = utDAO.getLesUtilisateurs();
         DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
         tableModel.setRowCount(0);
-        //aide du code de rémy
         if(!rs.isEmpty()){
-            for (Utilisateur liv : rs) {
-                Object[] livre = new Object[3];
-                livre[0] = liv.getLogin();
-                livre[1] = liv.getPassword();
-                tableModel.addRow(livre); 
+            for (Utilisateur util : rs) {
+                Object[] Utilisateur = new Object[9];
+                Utilisateur[0] = util.getId();
+                Utilisateur[1] = util.getNom();
+                Utilisateur[2] = util.getPrenom();
+                Utilisateur[3] = util.getLogin();
+                Utilisateur[4] = util.getPassword();
+                Utilisateur[5] = util.getAdresse();
+                Utilisateur[6] = util.getCp();
+                Utilisateur[7] = util.getVille();
+                Utilisateur[8] = util.getDateEmbauche();
+                tableModel.addRow(Utilisateur); 
             }
         }    
         else{

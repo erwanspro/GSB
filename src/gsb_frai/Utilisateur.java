@@ -11,7 +11,7 @@ import java.util.Date;
  * @author esellin
  */
 public class Utilisateur {
-    private int Id;
+    private String Id;
     private String nom;
     private String prenom;
     private String login;
@@ -21,7 +21,7 @@ public class Utilisateur {
     private String ville;
     private Date dateEmbauche;
 
-    public Utilisateur(int id,String nom, String prenom, String login, String password, String adresse, String cp, String ville, Date dateEmbauche) {
+    public Utilisateur(String id,String nom, String prenom, String login, String password, String adresse, String cp, String ville, Date dateEmbauche) {
         this.Id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -33,7 +33,7 @@ public class Utilisateur {
         this.dateEmbauche = dateEmbauche;
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
@@ -69,7 +69,7 @@ public class Utilisateur {
         return dateEmbauche;
     }
     
-    public void setId(int Id) {
+    public void setId(String Id) {
         this.Id = Id;
     }
 

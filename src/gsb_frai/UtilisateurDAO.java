@@ -30,7 +30,7 @@ public class UtilisateurDAO {
             result = statement.executeQuery(sql);
             while(result.next())
             {
-                Utilisateur user = new Utilisateur(result.getInt(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getDate(9));
+                Utilisateur user = new Utilisateur(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getDate(9));
                 lesUtilisateurs.add(user);
             }
         } catch (SQLException ex) {
