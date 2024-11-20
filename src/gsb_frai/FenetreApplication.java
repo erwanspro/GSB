@@ -170,7 +170,14 @@ public class FenetreApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultActionPerformed
     
     private void DisconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnectActionPerformed
-        JOptionPane.showMessageDialog(this, "voulez-vous vraiment quitter cette application");
+        int response = JOptionPane.showConfirmDialog(this,
+        "Voulez-vous vraiment quitter cette application ?", 
+        "Disconnect", 
+        JOptionPane.OK_CANCEL_OPTION);
+
+        if (response == JOptionPane.OK_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_DisconnectActionPerformed
 
     /**
