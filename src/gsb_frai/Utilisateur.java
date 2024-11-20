@@ -4,33 +4,105 @@
  */
 package gsb_frai;
 
+import java.util.Date;
+
 /**
  *
  * @author esellin
  */
 public class Utilisateur {
+    private int Id;
+    private String nom;
+    private String prenom;
     private String login;
     private String password;
+    private String adresse;
+    private String cp;
+    private String ville;
+    private Date dateEmbauche;
 
-    public Utilisateur(String login, String password) {
+    public Utilisateur(int id,String nom, String prenom, String login, String password, String adresse, String cp, String ville, Date dateEmbauche) {
+        this.Id = id;
+        this.nom = nom;
+        this.prenom = prenom;
         this.login = login;
         this.password = password;
+        this.adresse = adresse;
+        this.cp = cp;
+        this.ville = ville;
+        this.dateEmbauche = dateEmbauche;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public String getPassword() {
         return password;
     }
 
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public String getCp() {
+        return cp;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public Date getDateEmbauche() {
+        return dateEmbauche;
+    }
+    
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public void setDateEmbauche(Date dateEmbauche) {
+        this.dateEmbauche = dateEmbauche;
     }
 
     @Override

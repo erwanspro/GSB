@@ -20,6 +20,7 @@ public class FenetreConsult extends javax.swing.JFrame {
     public FenetreConsult(JFrame parent) {
         this.parentFrame = parent;
         initComponents();
+        listerUtilisateur();
     }
 
     private FenetreConsult() {
@@ -30,13 +31,19 @@ public class FenetreConsult extends javax.swing.JFrame {
         ArrayList<Utilisateur> rs = utDAO.getLesUtilisateurs();
         DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
         tableModel.setRowCount(0);
-        //aide du code de rémy
         if(!rs.isEmpty()){
-            for (Utilisateur liv : rs) {
-                Object[] livre = new Object[3];
-                livre[0] = liv.getLogin();
-                livre[1] = liv.getPassword();
-                tableModel.addRow(livre); 
+            for (Utilisateur util : rs) {
+                Object[] Utilisateur = new Object[8];
+                Utilisateur[0] = util.getId();
+                Utilisateur[0] = util.getNom();
+                Utilisateur[1] = util.getPrenom();
+                Utilisateur[2] = util.getLogin();
+                Utilisateur[3] = util.getPassword();
+                Utilisateur[4] = util.getAdresse();
+                Utilisateur[5] = util.getCp();
+                Utilisateur[6] = util.getVille();
+                Utilisateur[7] = util.getDateEmbauche();
+                tableModel.addRow(Utilisateur); 
             }
         }    
         else{
@@ -129,8 +136,6 @@ public class FenetreConsult extends javax.swing.JFrame {
                 JBtnRetrunActionPerformed(evt);
             }
         });
-
-        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

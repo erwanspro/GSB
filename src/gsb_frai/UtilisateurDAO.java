@@ -25,12 +25,12 @@ public class UtilisateurDAO {
         ResultSet result = null;
         ArrayList<Utilisateur> lesUtilisateurs = new ArrayList<Utilisateur>();
         try {
-            String sql = "SELECT * FROM visiteur";
+            String sql = "SELECT * FROM employe";
             Statement statement = connexion.createStatement();
             result = statement.executeQuery(sql);
             while(result.next())
             {
-                Utilisateur user = new Utilisateur(result.getString(4),result.getString(5));
+                Utilisateur user = new Utilisateur(result.getInt(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getDate(9));
                 lesUtilisateurs.add(user);
             }
         } catch (SQLException ex) {
@@ -41,7 +41,7 @@ public class UtilisateurDAO {
     } 
      public int ajoutUtilisateur(String id, String nom, String prenom, String login, String mdp, String adresse, String cp, String ville, Date dateEmbauche ) throws SQLException
     {
-        String sql = "INSERT INTO visiteur (id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche)"
+        String sql = "INSERT INTO employe (id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche)"
                 + "VALUES (?,?,?,?,?)";
         int  rowsInsered = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class UtilisateurDAO {
      
      public int suprimUtilisateur(String id, String nom, String prenom ) throws SQLException
     {
-        String sql = "DELETE FROM visiteur  WHERE id = ? AND nom = ?, AND prenom = ?";
+        String sql = "DELETE FROM employe  WHERE id = ? AND nom = ?, AND prenom = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(1, id);
@@ -72,7 +72,7 @@ public class UtilisateurDAO {
     }
      public int modifNom(String id, String nom) throws SQLException
     {
-        String sql = "UPDATE visiteur SET nom = ? Where id = ?";
+        String sql = "UPDATE employe SET nom = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
@@ -83,7 +83,7 @@ public class UtilisateurDAO {
     }
      public int modifPrenom(String id, String prenom) throws SQLException
     {
-        String sql = "UPDATE visiteur SET prenom = ? Where id = ?";
+        String sql = "UPDATE employe SET prenom = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
@@ -94,7 +94,7 @@ public class UtilisateurDAO {
     }
      public int modifLogin(String id, String login) throws SQLException
     {
-        String sql = "UPDATE visiteur SET login = ? Where id = ?";
+        String sql = "UPDATE employe SET login = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
@@ -105,7 +105,7 @@ public class UtilisateurDAO {
     }
      public int modifPassword(String id, String mdp) throws SQLException
     {
-        String sql = "UPDATE visiteur SET mdp = ? Where id = ?";
+        String sql = "UPDATE employe SET mdp = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
@@ -116,7 +116,7 @@ public class UtilisateurDAO {
     }
      public int modifAdresse(String id, String adresse) throws SQLException
     {
-        String sql = "UPDATE visiteur SET adresse = ? Where id = ?";
+        String sql = "UPDATE employe SET adresse = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
@@ -127,7 +127,7 @@ public class UtilisateurDAO {
     }
      public int modifCp(String id, String cp) throws SQLException
     {
-        String sql = "UPDATE visiteur SET cp = ? Where id = ?";
+        String sql = "UPDATE employe SET cp = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
@@ -138,7 +138,7 @@ public class UtilisateurDAO {
     }
      public int modifVille(String id, String ville) throws SQLException
     {
-        String sql = "UPDATE visiteur SET ville = ? Where id = ?";
+        String sql = "UPDATE employe SET ville = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
@@ -149,7 +149,7 @@ public class UtilisateurDAO {
     }
      public int modifDateEmbauche(String id, String dateEmbauche) throws SQLException
     {
-        String sql = "UPDATE visiteur SET dateEmbauche = ? Where id = ?";
+        String sql = "UPDATE employe SET dateEmbauche = ? Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(2, id);
