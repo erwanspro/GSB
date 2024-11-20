@@ -6,6 +6,7 @@ package gsb_frai;
 
 import javax.swing.JOptionPane;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -69,8 +70,15 @@ public class FenetreLogin extends javax.swing.JFrame {
         });
 
         JTLogin.setBackground(new java.awt.Color(153, 204, 255));
+        JTLogin.setName("JTLogin"); // NOI18N
+        JTLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTLoginActionPerformed(evt);
+            }
+        });
 
         JTMdp.setBackground(new java.awt.Color(153, 204, 255));
+        JTMdp.setName(""); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,16 +136,26 @@ public class FenetreLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBtConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConnectActionPerformed
-        if (connectBdd.getConnexion()!= null){
-            this.dispose();
-            application.setVisible(rootPaneCheckingEnabled);
+        String login = JTLogin.getText();
+        ArrayList<Utilisateur> userTab = uDAO.getLesUtilisateurs();
+
+        for(int i=0;i<userTab.size();i++)
+        {
+            
+            if (userTab.get(i).getLogin().equals(login)){
+                application.setVisible(rootPaneCheckingEnabled);
+                 this.dispose();
+            }
         }
-        else if(connectBdd.getConnexion()== null){
+        if(userTab.getLogin().equals(login)){
             JOptionPane.showMessageDialog(this, "Connexion impossible login ou mot de passe incorecte");
         }
-        
-        
+
     }//GEN-LAST:event_JBtConnectActionPerformed
+
+    private void JTLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTLoginActionPerformed
 
     /**
      * @param args the command line arguments
