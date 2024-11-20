@@ -5,6 +5,7 @@
 package gsb_frai;
 
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,8 +17,13 @@ public class FenetreModify extends javax.swing.JFrame {
     /**
      * Creates new form FenetreConsult
      */
-    public FenetreModify() {
+    public FenetreModify(JFrame parent) {
+        this.parentFrame = parent;
         initComponents();
+    }
+
+    private FenetreModify() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void listerUtilisateur(){
@@ -176,7 +182,11 @@ public class FenetreModify extends javax.swing.JFrame {
 
     private void JBtnRetrunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRetrunActionPerformed
         this.dispose();
-        application.setVisible(true);
+        if (parentFrame != null) {
+            parentFrame.setVisible(true); // Rendre la fenêtre principale visible à nouveau
+        } else {
+            System.out.println("La fenêtre principale est null");
+        }
     }//GEN-LAST:event_JBtnRetrunActionPerformed
 
     /**
@@ -226,5 +236,5 @@ public class FenetreModify extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     AccesBdD connectBdd = new AccesBdD();
     UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
-    FenetreApplication application;
+    private JFrame parentFrame;
 }

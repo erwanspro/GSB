@@ -166,9 +166,9 @@ public class FenetreApplication extends javax.swing.JFrame {
 
     private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
         this.setVisible(false);
-        consult.setVisible(rootPaneCheckingEnabled);
+        consult.setVisible(true);
     }//GEN-LAST:event_ConsultActionPerformed
-
+    
     private void DisconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnectActionPerformed
         this.dispose();
     }//GEN-LAST:event_DisconnectActionPerformed
@@ -223,6 +223,6 @@ public class FenetreApplication extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
     AccesBdD connectBdd = new AccesBdD();
-    FenetreConsult consult = new FenetreConsult();
-    FenetreModify modify = new FenetreModify();
+    FenetreConsult consult = new FenetreConsult(this);
+    FenetreModify modify = new FenetreModify(this);
 }
