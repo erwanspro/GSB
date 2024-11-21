@@ -39,6 +39,27 @@ public class UtilisateurDAO {
         return lesUtilisateurs;
           
     } 
+    
+    public ArrayList<Utilisateur> BarreRecherche(String recherche)
+    {
+        ResultSet result = null;
+        ArrayList<Utilisateur> lesUtilisateurs = new ArrayList<Utilisateur>();
+        try {
+            String sql = "SELECT id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,idStat FROM employe WHERE recherche == id";
+            Statement statement = connexion.createStatement();
+            result = statement.executeQuery(sql);
+            while(result.next())
+            {
+                Utilisateur user = new Utilisateur(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getDate(9),result.getInt(10));
+                lesUtilisateurs.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccesBdD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lesUtilisateurs;
+          
+    } 
+    
      public int ajoutUtilisateur(String id, String nom, String prenom, String login, String mdp, String adresse, String cp, String ville, Date dateEmbauche ) throws SQLException
     {
         String sql = "INSERT INTO employe (id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche)"
