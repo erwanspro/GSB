@@ -156,12 +156,6 @@ public class FenetreLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Connexion impossible login ou mot de passe incorecte");
             t=0;
         }
-        else
-        {
-            JOptionPane.showMessageDialog(this, "Connexion possible");
-        }
-        
-       
     }//GEN-LAST:event_JBtConnectActionPerformed
 
     private void JTLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTLoginActionPerformed
