@@ -137,20 +137,31 @@ public class FenetreLogin extends javax.swing.JFrame {
 
     private void JBtConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConnectActionPerformed
         String login = JTLogin.getText();
+        String mdp = JTMdp.getText();
         ArrayList<Utilisateur> userTab = uDAO.getLesUtilisateurs();
+        int t= 0;
 
         for(int i=0;i<userTab.size();i++)
         {
             
-            if (userTab.get(i).getLogin().equals(login)){
+            if (userTab.get(i).getLogin().equals(login) && userTab.get(i).getPassword().equals(mdp)&& userTab.get(i).getStatus()==1){
                 application.setVisible(rootPaneCheckingEnabled);
                  this.dispose();
+                 t=1;
             }
         }
-//        if(userTab.getLogin().equals(login){
-//            JOptionPane.showMessageDialog(this, "Connexion impossible login ou mot de passe incorecte");
-//        }
-
+        
+        if(t==0)
+        {
+            JOptionPane.showMessageDialog(this, "Connexion impossible login ou mot de passe incorecte");
+            t=0;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Connexion possible");
+        }
+        
+       
     }//GEN-LAST:event_JBtConnectActionPerformed
 
     private void JTLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTLoginActionPerformed

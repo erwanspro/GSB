@@ -20,8 +20,9 @@ public class Utilisateur {
     private String cp;
     private String ville;
     private Date dateEmbauche;
+    private int status;
 
-    public Utilisateur(String id,String nom, String prenom, String login, String password, String adresse, String cp, String ville, Date dateEmbauche) {
+    public Utilisateur(String id,String nom, String prenom, String login, String password, String adresse, String cp, String ville, Date dateEmbauche,int status) {
         this.Id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -31,6 +32,7 @@ public class Utilisateur {
         this.cp = cp;
         this.ville = ville;
         this.dateEmbauche = dateEmbauche;
+        this.status = status;
     }
 
     public String getId() {
@@ -51,6 +53,10 @@ public class Utilisateur {
 
     public String getPassword() {
         return password;
+    }
+    
+    public int getStatus() {
+        return status;
     }
 
     public String getAdresse() {
