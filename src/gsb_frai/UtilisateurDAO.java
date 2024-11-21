@@ -25,7 +25,7 @@ public class UtilisateurDAO {
         ResultSet result = null;
         ArrayList<Utilisateur> lesUtilisateurs = new ArrayList<Utilisateur>();
         try {
-            String sql = "SELECT * FROM employe";
+            String sql = "SELECT id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,idStat FROM employe";
             Statement statement = connexion.createStatement();
             result = statement.executeQuery(sql);
             while(result.next())
