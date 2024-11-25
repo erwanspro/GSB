@@ -71,6 +71,7 @@ public class FenetreConsult extends javax.swing.JFrame {
         JBtnRecherche = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 153));
 
