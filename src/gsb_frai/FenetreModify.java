@@ -251,7 +251,7 @@ public class FenetreModify extends javax.swing.JFrame {
             if(tabModel.getRowCount()!= userTab.size())
             {
 //               uDAO.modifNom(tabModel.getRowCount("id,nom"));
-               uDAO.modifNom(tabModel.getColumnCount(),tabModel.getColumnName(taModel));
+//               uDAO.modifNom(tabModel.getColumnCount(),tabModel.getColumnName(taModel));
             }
             
         }
