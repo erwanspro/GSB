@@ -212,7 +212,9 @@ public class FenetreConsult extends javax.swing.JFrame {
     private void JBtnRechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRechercheActionPerformed
         String recherche = JBarreRecherche.getText(); // Récupérer la valeur de la barre de recherche
         DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
-        for(Utilisateur i :utDAO.BarreRecherche(recherche))
+        tableModel.setRowCount(0);
+        ArrayList<Utilisateur> lesUtilis = utDAO.BarreRecherche(recherche);
+        for(Utilisateur i : lesUtilis)
         {
             tableModel.addRow(i.toArray());
         }

@@ -70,7 +70,7 @@ public class FenetreModify extends javax.swing.JFrame {
         tableUtilisateur = new javax.swing.JTable();
         JBtnRetrun = new javax.swing.JButton();
         JBarreRecherche = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        JBtnRecherche = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         JBtnRetrun1 = new javax.swing.JButton();
 
@@ -148,15 +148,20 @@ public class FenetreModify extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Rechercher");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBtnRecherche.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JBtnRecherche.setText("Rechercher");
+        JBtnRecherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBtnRechercheActionPerformed(evt);
             }
         });
 
         jButton2.setText("ajouter nouveaux utilisateur");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         JBtnRetrun1.setText("sauvegarde");
         JBtnRetrun1.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +192,7 @@ public class FenetreModify extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(JBarreRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JBtnRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -200,7 +205,7 @@ public class FenetreModify extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBarreRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBtnRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,12 +240,20 @@ public class FenetreModify extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtnRetrunActionPerformed
 
     private void JBarreRechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBarreRechercheActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_JBarreRechercheActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void JBtnRechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRechercheActionPerformed
+        String recherche = JBarreRecherche.getText(); // Récupérer la valeur de la barre de recherche
+        DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
+        tableModel.setRowCount(0);
+        ArrayList<Utilisateur> lesUtilis = utDAO.BarreRecherche(recherche);
+        for(Utilisateur i : lesUtilis)
+        {
+            tableModel.addRow(i.toArray());
+        }
+        this.tableUtilisateur.setModel(tableModel);
+    }//GEN-LAST:event_JBtnRechercheActionPerformed
 
     private void JBtnRetrun1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRetrun1ActionPerformed
         TableModel tabModel = tableUtilisateur.getModel();
@@ -256,6 +269,10 @@ public class FenetreModify extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_JBtnRetrun1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,9 +312,9 @@ public class FenetreModify extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JBarreRecherche;
+    private javax.swing.JButton JBtnRecherche;
     private javax.swing.JButton JBtnRetrun;
     private javax.swing.JButton JBtnRetrun1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
