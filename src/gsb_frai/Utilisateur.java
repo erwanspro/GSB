@@ -111,6 +111,10 @@ public class Utilisateur {
         this.dateEmbauche = dateEmbauche;
     }
 
+    public Object[] toArray(){
+        Object[] tab = new Object[]{this.Id,this.nom,this.prenom,this.login,this.password,this.adresse,this.cp,this.ville,this.dateEmbauche,this.status};
+        return tab;
+    }
     @Override
     public String toString() {
         return "Utilisateur{" + "login=" + login + ", password=" + password + '}';

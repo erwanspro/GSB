@@ -42,10 +42,10 @@ public class UtilisateurDAO {
     
     public ArrayList<Utilisateur> BarreRecherche(String recherche)
     {
-        ResultSet result = null;
         ArrayList<Utilisateur> lesUtilisateurs = new ArrayList<Utilisateur>();
         try {
-            String sql = "SELECT id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,idStat FROM employe WHERE recherche == id";
+            ResultSet result = null;
+            String sql = "SELECT id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,idStat FROM employe WHERE id LIKE '" + recherche+ "%'";
             Statement statement = connexion.createStatement();
             result = statement.executeQuery(sql);
             while(result.next())
@@ -56,8 +56,7 @@ public class UtilisateurDAO {
         } catch (SQLException ex) {
             Logger.getLogger(AccesBdD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return lesUtilisateurs;
-          
+        return lesUtilisateurs;  
     } 
     
      public int ajoutUtilisateur(String id, String nom, String prenom, String login, String mdp, String adresse, String cp, String ville, Date dateEmbauche ) throws SQLException
@@ -194,5 +193,10 @@ public class UtilisateurDAO {
         return true;
         
      }
+
+    @Override
+    public String toString() {
+        return "UtilisateurDAO{" + '}';
+    }
     
 }
