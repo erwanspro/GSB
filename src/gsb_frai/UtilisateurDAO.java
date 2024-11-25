@@ -91,90 +91,22 @@ public class UtilisateurDAO {
         return rowsDeleted;
                
     }
-     public int modifNom(String id, String nom) throws SQLException
+     public int modifVisiteurs(String id, String nom,String prenom,String login,
+             String mdp,String adresse,String cp,String ville,String dateEmbauche) throws SQLException
     {
-        String sql = "UPDATE employe SET nom = ? Where id = ?";
+        String sql = "UPDATE employe SET nom = ?, prenom = ?, login = ?, "
+                + "mdp = ?, adresse = ?, cp = ?, adresse = ?, cp = ?, ville = ?,"
+                + " dateEmbauche = ?  Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, nom);
-        rowsDeleted = statement.executeUpdate();
-        return rowsDeleted;
-               
-    }
-     public int modifPrenom(String id, String prenom) throws SQLException
-    {
-        String sql = "UPDATE employe SET prenom = ? Where id = ?";
-        int  rowsDeleted = 0;
-        PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, prenom);
-        rowsDeleted = statement.executeUpdate();
-        return rowsDeleted;
-               
-    }
-     public int modifLogin(String id, String login) throws SQLException
-    {
-        String sql = "UPDATE employe SET login = ? Where id = ?";
-        int  rowsDeleted = 0;
-        PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, login);
-        rowsDeleted = statement.executeUpdate();
-        return rowsDeleted;
-               
-    }
-     public int modifPassword(String id, String mdp) throws SQLException
-    {
-        String sql = "UPDATE employe SET mdp = ? Where id = ?";
-        int  rowsDeleted = 0;
-        PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, mdp);
-        rowsDeleted = statement.executeUpdate();
-        return rowsDeleted;
-               
-    }
-     public int modifAdresse(String id, String adresse) throws SQLException
-    {
-        String sql = "UPDATE employe SET adresse = ? Where id = ?";
-        int  rowsDeleted = 0;
-        PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, adresse);
-        rowsDeleted = statement.executeUpdate();
-        return rowsDeleted;
-               
-    }
-     public int modifCp(String id, String cp) throws SQLException
-    {
-        String sql = "UPDATE employe SET cp = ? Where id = ?";
-        int  rowsDeleted = 0;
-        PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, cp);
-        rowsDeleted = statement.executeUpdate();
-        return rowsDeleted;
-               
-    }
-     public int modifVille(String id, String ville) throws SQLException
-    {
-        String sql = "UPDATE employe SET ville = ? Where id = ?";
-        int  rowsDeleted = 0;
-        PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, ville);
-        rowsDeleted = statement.executeUpdate();
-        return rowsDeleted;
-               
-    }
-     public int modifDateEmbauche(String id, String dateEmbauche) throws SQLException
-    {
-        String sql = "UPDATE employe SET dateEmbauche = ? Where id = ?";
-        int  rowsDeleted = 0;
-        PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(2, id);
-        statement.setString(1, dateEmbauche);
+        statement.setString(1, id);
+        statement.setString(2, nom);
+        statement.setString(3, prenom);
+        statement.setString(4, login);
+        statement.setString(5, mdp);
+        statement.setString(5, adresse);
+        statement.setString(6, cp);
+        statement.setString(7, ville);
         rowsDeleted = statement.executeUpdate();
         return rowsDeleted;
                
