@@ -65,7 +65,7 @@
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="JBtnRecherche" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JBtnAddNew" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -83,7 +83,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JBarreRecherche" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="JBtnRecherche" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="JBtnAddNew" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="26" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="306" max="-2" attributes="0"/>
@@ -239,12 +239,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtnRechercheActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="JBtnAddNew">
           <Properties>
             <Property name="text" type="java.lang.String" value="ajouter nouveaux utilisateur"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtnAddNewActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="JBtnRetrun1">
