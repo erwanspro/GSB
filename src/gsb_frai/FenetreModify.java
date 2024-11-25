@@ -7,6 +7,7 @@ package gsb_frai;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -21,6 +22,7 @@ public class FenetreModify extends javax.swing.JFrame {
         this.parentFrame = parent;
         initComponents();
         listerUtilisateur();
+        
     }
 
     private FenetreModify() {
@@ -70,6 +72,7 @@ public class FenetreModify extends javax.swing.JFrame {
         JBarreRecherche = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        JBtnRetrun1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,6 +158,13 @@ public class FenetreModify extends javax.swing.JFrame {
 
         jButton2.setText("ajouter nouveaux utilisateur");
 
+        JBtnRetrun1.setText("sauvegarde");
+        JBtnRetrun1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBtnRetrun1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -164,10 +174,12 @@ public class FenetreModify extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 17, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(348, 348, 348)
-                        .addComponent(JBtnRetrun, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JBtnRetrun)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBtnRetrun1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -193,7 +205,9 @@ public class FenetreModify extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JBtnRetrun, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBtnRetrun, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBtnRetrun1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -227,6 +241,21 @@ public class FenetreModify extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JBtnRetrun1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRetrun1ActionPerformed
+        TableModel tabModel = tableUtilisateur.getModel();
+        UtilisateurDAO uDAO = new UtilisateurDAO(connectBdd.getConnexion());
+        ArrayList<Utilisateur> userTab = uDAO.getLesUtilisateurs();
+        for(int i=0;i<tabModel.getRowCount();i++)
+        {
+            if(tabModel.getRowCount()!= userTab.size())
+            {
+//               uDAO.modifNom(tabModel.getRowCount("id,nom"));
+               uDAO.modifNom(tabModel.getColumnCount(),tabModel.getColumnName(taModel));
+            }
+            
+        }
+    }//GEN-LAST:event_JBtnRetrun1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,6 +296,7 @@ public class FenetreModify extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JBarreRecherche;
     private javax.swing.JButton JBtnRetrun;
+    private javax.swing.JButton JBtnRetrun1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
