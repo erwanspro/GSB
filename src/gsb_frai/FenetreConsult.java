@@ -14,9 +14,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FenetreConsult extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FenetreConsult
-     */
+    private AccesBdD connectBdd = new AccesBdD();
+    private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
+    private JFrame parentFrame;
+    
     public FenetreConsult(JFrame parent) {
         this.parentFrame = parent;
         initComponents();
@@ -267,7 +268,4 @@ public class FenetreConsult extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableUtilisateur;
     // End of variables declaration//GEN-END:variables
-    AccesBdD connectBdd = new AccesBdD();
-    UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
-    private JFrame parentFrame;
 }

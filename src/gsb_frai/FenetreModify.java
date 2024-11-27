@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gsb_frai;
 
 import java.util.ArrayList;
@@ -10,15 +6,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-/**
- *
- * @author cbgam
- */
 public class FenetreModify extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FenetreConsult
-     */
+    private AccesBdD connectBdd = new AccesBdD();
+    private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
+    private JFrame parentFrame;
+    private FenetreAjout ajout = new FenetreAjout(this);
+
     public FenetreModify(JFrame parent) {
         this.parentFrame = parent;
         initComponents();
@@ -272,26 +266,8 @@ public class FenetreModify extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtnRetrun1ActionPerformed
 
     private void JBtnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAddNewActionPerformed
-        DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
-        String id = JOptionPane.showInputDialog(" Quelle serra l'ID");
-        String nom = JOptionPane.showInputDialog(" Quelle serra le nom");
-        String prenom = JOptionPane.showInputDialog(" Quelle serra le prenom");
-        String login = JOptionPane.showInputDialog(" Quelle serra le login");
-        String mdp = JOptionPane.showInputDialog(" Quelle serra le mot de passe");
-        String adresse = JOptionPane.showInputDialog(" Quelle serra l'adresse");
-        String cp = JOptionPane.showInputDialog(" Quelle serra le code postal");
-        String ville = JOptionPane.showInputDialog(" Quelle serra la ville");
-        String dateEmbauche = JOptionPane.showInputDialog(" Quelle serra la date d'embauche");
-        String[] options = {"0", "1"};
-        int idStat = JOptionPane.showOptionDialog(this,"Quel sera le statut à ajouter",null,
-    JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options, options[0]);
-        
-        if (idStat == JOptionPane.YES_OPTION) {
-            String s = options[0]; // "0"
-        } else if (idStat == JOptionPane.NO_OPTION) {
-            String s = options[1]; // "1"
-        }
-        tableModel.addRow(new String[]{id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche});
+        this.setVisible(false);
+        ajout.setVisible(true);
     }//GEN-LAST:event_JBtnAddNewActionPerformed
 
     /**
@@ -342,7 +318,4 @@ public class FenetreModify extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableUtilisateur;
     // End of variables declaration//GEN-END:variables
-    AccesBdD connectBdd = new AccesBdD();
-    UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
-    private JFrame parentFrame;
 }
