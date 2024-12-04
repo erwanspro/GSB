@@ -6,6 +6,7 @@ package gsb_frai;
 
 import java.security.SecureRandom;
 import java.sql.*;
+import java.text.Normalizer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -69,9 +70,21 @@ public class UtilisateurDAO {
         String caraP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         SecureRandom random = new SecureRandom();
         StringBuilder mdpC = new StringBuilder(longueurMDP);
+        for (int i = 0; i < longueurMDP; i++ ){
+            int index = random.nextInt(caraP.length());
+            char carac = caraP.charAt(index);
+            mdpC.append(carac);
+        }
+        String mdp = mdpC.toString();
         
+        //enleve les accents
+        String prenomSansAcc = Normalizer.normalize(prenom, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        String nomSansAcc = Normalizer.normalize(nom, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         
-        String sql = "INSERT INTO employe VALUES (?,?,?,'Aaaaaa','Attttttt',?,?,?,?,?)";
+        // Générer le login
+        String login = (prenomSansAcc.charAt(0) + nomSansAcc).toLowerCase();  
+        
+        String sql = "INSERT INTO employe VALUES (?,?,?,"+ mdp +",'Attttttt',?,?,?,?,?)";
         int  rowsInsered = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(1, id);
