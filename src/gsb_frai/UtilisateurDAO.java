@@ -4,6 +4,7 @@
  */
 package gsb_frai;
 
+import java.security.SecureRandom;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -61,10 +62,16 @@ public class UtilisateurDAO {
         return lesUtilisateurs;  
     } 
     
-     public int ajoutUtilisateur(String id, String nom, String prenom, String adresse, String cp, String ville, java.util.Date dateEmbauche ) throws SQLException
+     public int ajoutUtilisateur(String id, String nom, String prenom, String adresse, String cp, String ville, java.util.Date dateEmbauche, int Statut ) throws SQLException
     {
-        String sql = "INSERT INTO employe (id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche)"
-                + "VALUES (?,?,?,?,?)";
+        // génération mdp aléatoire
+        int longueurMDP = 8;
+        String caraP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        SecureRandom random = new SecureRandom();
+        StringBuilder mdpC = new StringBuilder(longueurMDP);
+        
+        
+        String sql = "INSERT INTO employe VALUES (?,?,?,'Aaaaaa','Attttttt',?,?,?,?,?)";
         int  rowsInsered = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(1, id);
@@ -75,6 +82,7 @@ public class UtilisateurDAO {
         statement.setString(6, ville);
         java.sql.Date dateEmbSQL = new java.sql.Date(dateEmbauche.getTime());
         statement.setDate(7, dateEmbSQL);
+        statement.setInt(8, Statut);
         rowsInsered = statement.executeUpdate();
         return rowsInsered; 
     }
