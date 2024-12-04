@@ -223,6 +223,7 @@ public class FenetreModify extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBtnRetrunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRetrunActionPerformed
@@ -258,15 +259,14 @@ public class FenetreModify extends javax.swing.JFrame {
         {
             if(tabModel.getRowCount()!= userTab.size())
             {
-//               uDAO.modifNom(tabModel.getRowCount("id,nom"));
-//               uDAO.modifNom(tabModel.getColumnCount(),tabModel.getColumnName(taModel));
+//                uDAO.modifVisiteurs(id, nom, prenom, login, mdp, adresse, cp, ville, dateEmbauche);
             }
             
         }
     }//GEN-LAST:event_JBtnRetrun1ActionPerformed
 
     private void JBtnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAddNewActionPerformed
-        this.setVisible(false);
+//        this.setVisible(false);
         ajout.setVisible(true);
     }//GEN-LAST:event_JBtnAddNewActionPerformed
 
