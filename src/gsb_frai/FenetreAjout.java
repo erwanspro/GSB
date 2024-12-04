@@ -7,6 +7,8 @@ package gsb_frai;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -15,8 +17,9 @@ import javax.swing.JFrame;
  */
 public class FenetreAjout extends javax.swing.JFrame {
     
-    
+    private AccesBdD connectBdd = new AccesBdD();
     private JFrame parentFrame;
+    private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
 
     /**
      * Creates new form NewJFrame
@@ -48,11 +51,11 @@ public class FenetreAjout extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         JTPrenom = new javax.swing.JTextField();
         JTAdr = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        JTCP = new javax.swing.JTextField();
         JTVille = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        JDateEmbauche = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,7 +65,7 @@ public class FenetreAjout extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Connexion a votre compte");
+        jLabel1.setText("Donnée de l'utilisateur");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Identifiant :");
@@ -108,7 +111,7 @@ public class FenetreAjout extends javax.swing.JFrame {
 
         JTAdr.setBackground(new java.awt.Color(153, 204, 255));
 
-        jTextField3.setBackground(new java.awt.Color(153, 204, 255));
+        JTCP.setBackground(new java.awt.Color(153, 204, 255));
 
         JTVille.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -118,7 +121,7 @@ public class FenetreAjout extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(153, 204, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Visiteur", "RH", " " }));
 
-        jDateChooser1.setBackground(new java.awt.Color(153, 204, 255));
+        JDateEmbauche.setBackground(new java.awt.Color(153, 204, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,10 +146,10 @@ public class FenetreAjout extends javax.swing.JFrame {
                             .addComponent(JTID)
                             .addComponent(JTPrenom)
                             .addComponent(JTAdr)
-                            .addComponent(jTextField3)
+                            .addComponent(JTCP)
                             .addComponent(JTVille)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(JDateEmbauche, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -179,7 +182,7 @@ public class FenetreAjout extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -187,7 +190,7 @@ public class FenetreAjout extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JDateEmbauche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -212,7 +215,17 @@ public class FenetreAjout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBtConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConnectActionPerformed
-        
+        this.dispose();
+        if (parentFrame != null) {
+            parentFrame.setVisible(true); // Rendre la fenêtre principale visible à nouveau
+            try {
+                utDAO.ajoutUtilisateur(JTID.getText(), JTNom.getText(), JTPrenom.getText(), JTAdr.getText(), JTCP.getText(), JTVille.getText(), JDateEmbauche.getDate());
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreAjout.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            System.out.println("La fenêtre principale est null");
+        }
     }//GEN-LAST:event_JBtConnectActionPerformed
 
     private void JTIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTIDActionPerformed
@@ -235,13 +248,14 @@ public class FenetreAjout extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtConnect;
+    private com.toedter.calendar.JDateChooser JDateEmbauche;
     private javax.swing.JTextField JTAdr;
+    private javax.swing.JTextField JTCP;
     private javax.swing.JTextField JTID;
     private javax.swing.JTextField JTNom;
     private javax.swing.JTextField JTPrenom;
     private javax.swing.JTextField JTVille;
     private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -252,6 +266,5 @@ public class FenetreAjout extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

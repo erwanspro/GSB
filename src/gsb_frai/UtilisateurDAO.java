@@ -5,6 +5,7 @@
 package gsb_frai;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,7 +61,7 @@ public class UtilisateurDAO {
         return lesUtilisateurs;  
     } 
     
-     public int ajoutUtilisateur(String id, String nom, String prenom, String login, String mdp, String adresse, String cp, String ville, Date dateEmbauche ) throws SQLException
+     public int ajoutUtilisateur(String id, String nom, String prenom, String adresse, String cp, String ville, java.util.Date dateEmbauche ) throws SQLException
     {
         String sql = "INSERT INTO employe (id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche)"
                 + "VALUES (?,?,?,?,?)";
@@ -69,12 +70,11 @@ public class UtilisateurDAO {
         statement.setString(1, id);
         statement.setString(2, nom);
         statement.setString(3, prenom);
-        statement.setString(4, login);
-        statement.setString(5, mdp);
-        statement.setString(6, adresse);
-        statement.setString(7, cp);
-        statement.setString(8, ville);
-        statement.setDate(9, dateEmbauche);
+        statement.setString(4, adresse);
+        statement.setString(5, cp);
+        statement.setString(6, ville);
+        java.sql.Date dateEmbSQL = new java.sql.Date(dateEmbauche.getTime());
+        statement.setDate(7, dateEmbSQL);
         rowsInsered = statement.executeUpdate();
         return rowsInsered; 
     }
