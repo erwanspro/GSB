@@ -84,7 +84,7 @@ public class UtilisateurDAO {
         // Générer le login
         String login = (prenomSansAcc.charAt(0) + nomSansAcc).toLowerCase();  
         
-        String sql = "INSERT INTO employe VALUES (?,?,?,"+ mdp +",'Attttttt',?,?,?,?,?)";
+        String sql = "INSERT INTO employe VALUES (?,?,?, '" + mdp + "', '" + login + "',?,?,?,?,?)";
         int  rowsInsered = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
         statement.setString(1, id);
