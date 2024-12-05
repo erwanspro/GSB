@@ -64,7 +64,6 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="Disconnect" alignment="0" pref="125" max="32767" attributes="0"/>
                                       <Component id="Modif" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Consult" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -87,11 +86,9 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="Consult" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="Modif" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                           <Component id="Disconnect" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -158,14 +155,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Vos diff&#xe9;rentes option :"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Consult">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Consult all user"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Modif">
           <Properties>

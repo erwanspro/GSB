@@ -17,7 +17,6 @@ import javax.swing.JFrame;
  */
 public class FenetreApplication extends javax.swing.JFrame {
     AccesBdD connectBdd = new AccesBdD();
-    FenetreConsult consult = new FenetreConsult(this);
     FenetreModify modify = new FenetreModify(this);
     
     
@@ -44,7 +43,6 @@ public class FenetreApplication extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        Consult = new javax.swing.JButton();
         Modif = new javax.swing.JButton();
         Disconnect = new javax.swing.JButton();
 
@@ -82,13 +80,6 @@ public class FenetreApplication extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Vos différentes option :");
 
-        Consult.setText("Consult all user");
-        Consult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultActionPerformed(evt);
-            }
-        });
-
         Modif.setText("Modify user");
         Modif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,8 +110,7 @@ public class FenetreApplication extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Disconnect, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addComponent(Modif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Consult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(Modif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jLabel2)
                         .addGap(9, 9, 9))
@@ -136,11 +126,9 @@ public class FenetreApplication extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(Consult, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
+                        .addGap(74, 74, 74)
                         .addComponent(Modif, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
+                        .addGap(73, 73, 73)
                         .addComponent(Disconnect, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -167,11 +155,6 @@ public class FenetreApplication extends javax.swing.JFrame {
         this.setVisible(false);
         modify.setVisible(true);
     }//GEN-LAST:event_ModifActionPerformed
-
-    private void ConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultActionPerformed
-        this.setVisible(false);
-        consult.setVisible(true);
-    }//GEN-LAST:event_ConsultActionPerformed
     
     private void DisconnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnectActionPerformed
         int response = JOptionPane.showConfirmDialog(this,
@@ -223,7 +206,6 @@ public class FenetreApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Consult;
     private javax.swing.JButton Disconnect;
     private javax.swing.JButton Modif;
     private javax.swing.JLabel jLabel1;

@@ -20,7 +20,6 @@ public class FenetreAjout extends javax.swing.JFrame {
     
     private AccesBdD connectBdd = new AccesBdD();
     private JFrame parentFrame;
-   // private FenetreAjout ajout = new FenetreAjout(this);
     private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
 
 

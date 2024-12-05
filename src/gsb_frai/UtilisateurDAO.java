@@ -112,22 +112,25 @@ public class UtilisateurDAO {
         return rowsDeleted;
                
     }
-     public int modifVisiteurs(String id, String nom,String prenom,String login,
-             String mdp,String adresse,String cp,String ville,String dateEmbauche) throws SQLException
+     public int modifVisiteurs(String nom,String prenom,String login,
+             String mdp,String adresse,String cp,String ville,java.util.Date dateEmbauche, int statut, String id) throws SQLException
     {
         String sql = "UPDATE employe SET nom = ?, prenom = ?, login = ?, "
-                + "mdp = ?, adresse = ?, cp = ?, adresse = ?, cp = ?, ville = ?,"
-                + " dateEmbauche = ?  Where id = ?";
+                + "mdp = ?, adresse = ?, cp = ?, ville = ?,"
+                + " dateEmbauche = ?, idStat = ?  Where id = ?";
         int  rowsDeleted = 0;
         PreparedStatement statement = connexion.prepareStatement(sql);
-        statement.setString(1, id);
-        statement.setString(2, nom);
-        statement.setString(3, prenom);
-        statement.setString(4, login);
-        statement.setString(5, mdp);
+        statement.setString(1, nom);
+        statement.setString(2, prenom);
+        statement.setString(3, login);
+        statement.setString(4, mdp);
         statement.setString(5, adresse);
         statement.setString(6, cp);
         statement.setString(7, ville);
+        java.sql.Date dateEmbSQL = new java.sql.Date(dateEmbauche.getTime());
+        statement.setDate(8, dateEmbSQL);
+        statement.setInt(9, statut);
+        statement.setString(10, id);
         rowsDeleted = statement.executeUpdate();
         return rowsDeleted;
                

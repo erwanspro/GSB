@@ -67,7 +67,7 @@ public class FenetreModify extends javax.swing.JFrame {
         JBarreRecherche = new javax.swing.JTextField();
         JBtnRecherche = new javax.swing.JButton();
         JBtnAddNew = new javax.swing.JButton();
-        JBtnRetrun1 = new javax.swing.JButton();
+        JBtnModif = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +121,7 @@ public class FenetreModify extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true, true, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -158,10 +158,10 @@ public class FenetreModify extends javax.swing.JFrame {
             }
         });
 
-        JBtnRetrun1.setText("sauvegarde");
-        JBtnRetrun1.addActionListener(new java.awt.event.ActionListener() {
+        JBtnModif.setText("Modifier");
+        JBtnModif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBtnRetrun1ActionPerformed(evt);
+                JBtnModifActionPerformed(evt);
             }
         });
 
@@ -179,7 +179,7 @@ public class FenetreModify extends javax.swing.JFrame {
                         .addGap(348, 348, 348)
                         .addComponent(JBtnRetrun)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JBtnRetrun1))
+                        .addComponent(JBtnModif, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -207,7 +207,7 @@ public class FenetreModify extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBtnRetrun, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBtnRetrun1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JBtnModif, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -251,19 +251,9 @@ public class FenetreModify extends javax.swing.JFrame {
         this.tableUtilisateur.setModel(tableModel);
     }//GEN-LAST:event_JBtnRechercheActionPerformed
 
-    private void JBtnRetrun1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRetrun1ActionPerformed
-        TableModel tabModel = tableUtilisateur.getModel();
-        UtilisateurDAO uDAO = new UtilisateurDAO(connectBdd.getConnexion());
-        ArrayList<Utilisateur> userTab = uDAO.getLesUtilisateurs();
-        for(int i=0;i<tabModel.getRowCount();i++)
-        {
-            if(tabModel.getRowCount()!= userTab.size())
-            {
-//                uDAO.modifVisiteurs(id, nom, prenom, login, mdp, adresse, cp, ville, dateEmbauche);
-            }
-            
-        }
-    }//GEN-LAST:event_JBtnRetrun1ActionPerformed
+    private void JBtnModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnModifActionPerformed
+        
+    }//GEN-LAST:event_JBtnModifActionPerformed
 
     private void JBtnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAddNewActionPerformed
 //        this.setVisible(false);
@@ -309,9 +299,9 @@ public class FenetreModify extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JBarreRecherche;
     private javax.swing.JButton JBtnAddNew;
+    private javax.swing.JButton JBtnModif;
     private javax.swing.JButton JBtnRecherche;
     private javax.swing.JButton JBtnRetrun;
-    private javax.swing.JButton JBtnRetrun1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
