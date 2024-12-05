@@ -12,6 +12,7 @@ public class FenetreModify extends javax.swing.JFrame {
     private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
     private JFrame parentFrame;
     private FenetreAjout ajout = new FenetreAjout(this);
+    private FenetreModifier modifier = new FenetreModifier(this);
 
     public FenetreModify(JFrame parent) {
         this.parentFrame = parent;
@@ -252,7 +253,7 @@ public class FenetreModify extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtnRechercheActionPerformed
 
     private void JBtnModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnModifActionPerformed
-        
+         modifier.setVisible(true);
     }//GEN-LAST:event_JBtnModifActionPerformed
 
     private void JBtnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAddNewActionPerformed

@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author cjoncour
  */
-public class Fenetre_Modifier extends javax.swing.JFrame {
+public class FenetreModifier extends javax.swing.JFrame {
         AccesBdD connectBdd = new AccesBdD();
         private JFrame parentFrame;
         private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
@@ -24,14 +24,14 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
     /**
      * Creates new form Fenetre_Modifier
      */
-    public Fenetre_Modifier(JFrame parent) {
+    public FenetreModifier(JFrame parent) {
         initComponents();
         this.connectBdd = new AccesBdD();
         this.parentFrame = parent;
         this.utDAO = new UtilisateurDAO(connectBdd.getConnexion());
     }
 
-    private Fenetre_Modifier() {
+    private FenetreModifier() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     /**
@@ -66,43 +66,31 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
         txt_login = new javax.swing.JTextField();
         lbl_mdp = new javax.swing.JLabel();
         txt_mdp = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(150, 181, 236));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         lbl_titre.setBackground(new java.awt.Color(150, 181, 236));
         lbl_titre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbl_titre.setForeground(new java.awt.Color(0, 0, 0));
         lbl_titre.setText("Modifier");
 
         lbl_prenom.setBackground(new java.awt.Color(150, 181, 236));
-        lbl_prenom.setForeground(new java.awt.Color(0, 0, 0));
         lbl_prenom.setText("Prénom");
 
-        lbl_nom.setForeground(new java.awt.Color(0, 0, 0));
         lbl_nom.setText("Nom");
 
-        txt_idModif.setBackground(new java.awt.Color(255, 255, 255));
-
-        txt_nom.setBackground(new java.awt.Color(255, 255, 255));
-        txt_nom.setForeground(new java.awt.Color(0, 0, 0));
-
-        lbl_adr.setForeground(new java.awt.Color(0, 0, 0));
         lbl_adr.setText("Adresse");
 
-        lbl_ville.setForeground(new java.awt.Color(0, 0, 0));
         lbl_ville.setText("Ville");
 
-        lbl_cpostale.setForeground(new java.awt.Color(0, 0, 0));
         lbl_cpostale.setText("Code Postale");
 
-        lbl_statut.setForeground(new java.awt.Color(0, 0, 0));
         lbl_statut.setText("Statut");
 
         btn_valider.setBackground(new java.awt.Color(164, 254, 133));
-        btn_valider.setForeground(new java.awt.Color(0, 0, 0));
         btn_valider.setText("Valider");
         btn_valider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,25 +98,26 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
             }
         });
 
-        lbl_dateEmb1.setForeground(new java.awt.Color(0, 0, 0));
         lbl_dateEmb1.setText("Date d'embauche");
 
         jComb_Statut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Visiteur", "RH" }));
 
-        lbl_idModif.setForeground(new java.awt.Color(0, 0, 0));
         lbl_idModif.setText("id à modifier");
 
-        txt_prenom.setBackground(new java.awt.Color(255, 255, 255));
-
-        lbl_login.setForeground(new java.awt.Color(0, 0, 0));
         lbl_login.setText("Login");
 
-        txt_login.setBackground(new java.awt.Color(255, 255, 255));
-
-        lbl_mdp.setForeground(new java.awt.Color(0, 0, 0));
         lbl_mdp.setText("Mot de passe");
 
-        txt_mdp.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("X");
+        jButton1.setName("leave"); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,7 +127,9 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(lbl_titre))
+                        .addComponent(lbl_titre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +152,7 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_cpostale, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_statut)
-                                    .addComponent(btn_valider, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbl_statut)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jDate_dateEmb, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
@@ -182,15 +171,20 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
                                 .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lbl_dateEmb1)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_valider, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_titre)
-                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_titre)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -212,7 +206,7 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_cpostale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_cpostale))
-                        .addGap(18, 18, 18)
+                        .addGap(22, 22, 22)
                         .addComponent(jDate_dateEmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbl_dateEmb1))
                 .addGap(18, 18, 18)
@@ -231,9 +225,9 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_mdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_mdp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btn_valider)
-                .addGap(25, 25, 25))
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,6 +242,7 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validerActionPerformed
@@ -269,7 +264,7 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
                 try {
                     utDAO.modifVisiteurs(txt_nom.getText(), txt_prenom.getText(), txt_login.getText(), txt_mdp.getText(), txt_adr.getText(), txt_cpostale.getText(), txt_ville.getText(), jDate_dateEmb.getDate(), statut, txt_idModif.getText());
                 } catch (SQLException ex) {
-                    Logger.getLogger(Fenetre_Modifier.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FenetreModifier.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             else{
@@ -280,6 +275,10 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Modification(s) non sauvegardée(s)");
         }
     }//GEN-LAST:event_btn_validerActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     
@@ -300,27 +299,30 @@ public class Fenetre_Modifier extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Modifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Modifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Modifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Modifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fenetre_Modifier().setVisible(true);
+                new FenetreModifier().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_valider;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComb_Statut;
     private com.toedter.calendar.JDateChooser jDate_dateEmb;
     private javax.swing.JPanel jPanel1;
