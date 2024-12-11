@@ -66,18 +66,20 @@ public class UtilisateurDAO {
      public int ajoutUtilisateur(String id, String nom, String prenom, String adresse, String cp, String ville, java.util.Date dateEmbauche, int Statut ) throws SQLException
     {
         // génération mdp aléatoire
-        int longueurMDP = 8;
-        String caraP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        int mdpTaille = 8;
+        String caractAleatoire = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         SecureRandom random = new SecureRandom();
-        StringBuilder mdpC = new StringBuilder(longueurMDP);
-        for (int i = 0; i < longueurMDP; i++ ){
-            int index = random.nextInt(caraP.length());
-            char carac = caraP.charAt(index);
-            mdpC.append(carac);
+        StringBuilder mdpAleatoire = new StringBuilder(mdpTaille);
+            
+        for (int i = 0; i < mdpTaille; i++)
+        {
+            int index = random.nextInt(caractAleatoire.length());
+            char caract = caractAleatoire.charAt(index);
+            mdpAleatoire.append(caract);
         }
-        String mdp = mdpC.toString();
-        
-        //enleve les accents
+        String mdp = mdpAleatoire.toString();
+            
+        // Enlever les accents des noms / prénoms
         String prenomSansAcc = Normalizer.normalize(prenom, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         String nomSansAcc = Normalizer.normalize(nom, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         
