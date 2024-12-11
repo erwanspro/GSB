@@ -18,8 +18,17 @@ import javax.swing.JFrame;
  */
 public class FenetreAjout extends javax.swing.JFrame {
     
+    /**
+     * Objet de connexion à la base de données.
+     */
     private AccesBdD connectBdd = new AccesBdD();
+    /**
+     * Cree une frame parent de la fenêtre.
+     */
     private JFrame parentFrame;
+    /**
+     * Objet DAO pour la gestion des utilisateurs.
+     */
     private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
 
 
@@ -240,6 +249,12 @@ public class FenetreAjout extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Gère l'action du bouton "Connecter" dans la fenêtre d'ajout utilisateur.
+    * Elle ferme la fenêtre d'ajout, rend la fenêtre principale visible et ajoute un nouvel utilisateur à la base de données.
+    * 
+    * @param evt L'événement de clic sur le bouton.
+    */
     private void JBtConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtConnectActionPerformed
         this.dispose();
         if (parentFrame != null) {

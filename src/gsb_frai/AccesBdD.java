@@ -13,11 +13,27 @@ import java.util.logging.Logger;
  */
 public class AccesBdD {
     
+    /**
+     * URL de la base de données.
+     */
     private final String dbURL="jdbc:mysql://localhost:3306/gsb_frais";
+    /**
+     * Nom d'utilisateur de la base de données.
+     */
     private final String userName = "root";
+    /**
+     * Mot de passe de la base de données.
+     */
     private final String password = "";
+    /**
+     * Connexion à la base de données.
+     */
     private Connection connexion;
     
+    /**
+     * Constructeur de la classe AccesBdD.
+     * Établit la connexion à la base de données.
+     */
     public AccesBdD()
     {
         try {
@@ -27,6 +43,9 @@ public class AccesBdD {
         }
     }
     
+    /**
+     * @return La connexion à la base de données.
+     */
     public Connection getConnexion()
     {
         return this.connexion;

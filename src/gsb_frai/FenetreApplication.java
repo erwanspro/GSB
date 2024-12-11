@@ -16,7 +16,14 @@ import javax.swing.JFrame;
  * @author cbgam
  */
 public class FenetreApplication extends javax.swing.JFrame {
+    
+    /**
+     * Objet de connexion à la base de données.
+     */
     AccesBdD connectBdd = new AccesBdD();
+    /**
+     * Nouvelle objet fenêtre de modification.
+     */
     FenetreModify modify = new FenetreModify(this);
     
     

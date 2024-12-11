@@ -14,8 +14,17 @@ import java.util.ArrayList;
  */
 public class FenetreLogin extends javax.swing.JFrame {
     
+    /**
+     * Objet de connexion à la base de données.
+     */
     private AccesBdD connectBdd;
+     /**
+     * Nouvelle fenêtre principale de l'application.
+     */
     private FenetreApplication application;
+    /**
+     * Objet de gestion des utilisateurs.
+     */
     private UtilisateurDAO uDAO;
 
     /**

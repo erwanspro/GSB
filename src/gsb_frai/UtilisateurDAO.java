@@ -18,11 +18,27 @@ import java.util.logging.Logger;
  */
 public class UtilisateurDAO {
     
+    /**
+     * Connexion à la base de données.
+     */
     private Connection connexion;
 
+    /**
+     * Constructeur de la classe UtilisateurDAO.
+     * 
+     * @param connexion Connexion à la base de données.
+     */
     public UtilisateurDAO(Connection connexion) {
         this.connexion = connexion;
     }
+    
+    /**
+     * Retourne une liste de tous les utilisateurs.
+     * 
+     * Cette méthode exécute une requête SQL pour récupérer tous les utilisateurs de la base de données et les retourne sous la forme d'une liste d'objets Utilisateur.
+     * 
+     * @return Une liste de tous les utilisateurs.
+     */
     public ArrayList<Utilisateur> getLesUtilisateurs()
     {
         ResultSet result = null;
@@ -43,6 +59,14 @@ public class UtilisateurDAO {
           
     } 
     
+    /**
+     * Retourne une liste d'utilisateurs correspondant à la recherche.
+     * 
+     * Cette méthode exécute une requête SQL pour récupérer les utilisateurs dont l'identifiant commence par la chaîne de recherche donnée.
+     * 
+     * @param recherche La chaîne de recherche à utiliser.
+     * @return Une liste d'utilisateurs correspondant à la recherche.
+     */
     public ArrayList<Utilisateur> BarreRecherche(String recherche)
     {
         ArrayList<Utilisateur> lesUtilisateurs = new ArrayList<Utilisateur>();
@@ -63,6 +87,22 @@ public class UtilisateurDAO {
         return lesUtilisateurs;  
     } 
     
+    /**
+     * Ajoute un nouvel utilisateur à la base de données.
+     * 
+     * Cette méthode génère un mot de passe aléatoire, un login et insère un nouvel utilisateur dans la base de données.
+     * 
+     * @param id L'identifiant de l'utilisateur.
+     * @param nom Le nom de l'utilisateur.
+     * @param prenom Le prénom de l'utilisateur.
+     * @param adresse L'adresse de l'utilisateur.
+     * @param cp Le code postal de l'utilisateur.
+     * @param ville La ville de l'utilisateur.
+     * @param dateEmbauche La date d'embauche de l'utilisateur.
+     * @param Statut Le statut de l'utilisateur.
+     * @return Le nombre de lignes insérées dans la base de données.
+     * @throws SQLException Si une erreur se produit lors de l'insertion dans la base de données.
+     */
      public int ajoutUtilisateur(String id, String nom, String prenom, String adresse, String cp, String ville, java.util.Date dateEmbauche, int Statut ) throws SQLException
     {
         // génération mdp aléatoire
@@ -102,6 +142,17 @@ public class UtilisateurDAO {
         return rowsInsered; 
     }
      
+     /**
+     * Supprime un utilisateur de la base de données.
+     * 
+     * Cette méthode supprime un utilisateur de la base de données en utilisant son identifiant, son nom et son prénom.
+     * 
+     * @param id L'identifiant de l'utilisateur à supprimer.
+     * @param nom Le nom de l'utilisateur à supprimer.
+     * @param prenom Le prénom de l'utilisateur à supprimer.
+     * @return Le nombre de lignes supprimées dans la base de données.
+     * @throws SQLException Si une erreur se produit lors de la suppression dans la base de données.
+     */
      public int suprimUtilisateur(String id, String nom, String prenom ) throws SQLException
     {
         String sql = "DELETE FROM employe  WHERE id = ? AND nom = ?, AND prenom = ?";
@@ -114,6 +165,25 @@ public class UtilisateurDAO {
         return rowsDeleted;
                
     }
+     
+     /**
+     * Modifie les informations d'un utilisateur dans la base de données.
+     * 
+     * Cette méthode met à jour les informations d'un utilisateur dans la base de données en utilisant son identifiant.
+     * 
+     * @param nom Le nouveau nom de l'utilisateur.
+     * @param prenom Le nouveau prénom de l'utilisateur.
+     * @param login Le nouveau login de l'utilisateur.
+     * @param mdp Le nouveau mot de passe de l'utilisateur.
+     * @param adresse La nouvelle adresse de l'utilisateur.
+     * @param cp Le nouveau code postal de l'utilisateur.
+     * @param ville La nouvelle ville de l'utilisateur.
+     * @param dateEmbauche La nouvelle date d'embauche de l'utilisateur.
+     * @param statut Le nouveau statut de l'utilisateur.
+     * @param id L'identifiant de l'utilisateur à modifier.
+     * @return Le nombre de lignes modifiées dans la base de données.
+     * @throws SQLException Si une erreur se produit lors de la modification dans la base de données.
+     */
      public int modifVisiteurs(String nom,String prenom,String login,
              String mdp,String adresse,String cp,String ville,java.util.Date dateEmbauche, int statut, String id) throws SQLException
     {
@@ -137,6 +207,16 @@ public class UtilisateurDAO {
         return rowsDeleted;
                
     }
+     
+     /**
+     * Vérifie si les informations de connexion sont valides.
+     * 
+     * Cette méthode vérifie si un utilisateur avec le login et le mot de passe donnés existe dans la base de données.
+     * 
+     * @param login Le login de l'utilisateur.
+     * @param mdp Le mot de passe de l'utilisateur.
+     * @return **true** si les informations de connexion sont valides, **false** sinon.
+     */
      public boolean loginConnexion (String login, String mdp)
      {
         ResultSet result = null;
@@ -153,6 +233,11 @@ public class UtilisateurDAO {
         
      }
 
+     /**
+     * Retourne une représentation textuelle de l'objet UtilisateurDAO.
+     * 
+     * @return Une représentation textuelle de l'objet UtilisateurDAO.
+     */
     @Override
     public String toString() {
         return "UtilisateurDAO{" + '}';

@@ -245,6 +245,14 @@ public class FenetreModifier extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Méthode gérant l'action du bouton de connexion.
+    * 
+    * Cette méthode est appelée lorsque l'utilisateur clique sur le bouton de connexion.
+    * Elle vérifie si les informations de connexion saisies par l'utilisateur sont valides et affiche la fenêtre principale de l'application si la connexion est réussie.
+    * 
+    * @param evt L'événement déclencheur de l'action.
+    */
     private void btn_validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validerActionPerformed
         int result = JOptionPane.showConfirmDialog(null, "Voulez vous sauvegarder la/les modification(s) ?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) {

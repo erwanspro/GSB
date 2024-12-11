@@ -7,13 +7,33 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 public class FenetreModify extends javax.swing.JFrame {
-
+    
+    /**
+     * Objet de connexion à la base de données.
+     */
     private AccesBdD connectBdd = new AccesBdD();
+    /**
+     * Objet de gestion des utilisateurs.
+     */
     private UtilisateurDAO utDAO = new UtilisateurDAO(connectBdd.getConnexion());
+    /**
+     * Cree une nouvelle frame parent de la fenêtre.
+     */
     private JFrame parentFrame;
+    /**
+     * Fenêtre d'ajout d'un utilisateur.
+     */
     private FenetreAjout ajout = new FenetreAjout(this);
+    /**
+     * Fenêtre de modification d'un utilisateur.
+     */
     private FenetreModifier modifier = new FenetreModifier(this);
 
+    /**
+     * Constructeur de la classe `FenetreModify`.
+     * 
+     * @param parent La fenêtre parent de la fenêtre de modification.
+     */
     public FenetreModify(JFrame parent) {
         this.parentFrame = parent;
         initComponents();
@@ -25,6 +45,9 @@ public class FenetreModify extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    /**
+     * Méthode pour lister les utilisateurs dans la table.
+     */
     public void listerUtilisateur(){
         ArrayList<Utilisateur> rs = utDAO.getLesUtilisateurs();
         DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
@@ -240,6 +263,14 @@ public class FenetreModify extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JBarreRechercheActionPerformed
 
+    /**
+    * Méthode gérant l'action du bouton de recherche.
+    * 
+    * Cette méthode est appelée lorsque l'utilisateur clique sur le bouton de recherche.
+    * Elle récupère la valeur saisie dans la barre de recherche, effectue une recherche dans la base de données et met à jour le tableau des utilisateurs avec les résultats de la recherche.
+    * 
+    * @param evt L'événement déclencheur de l'action.
+    */
     private void JBtnRechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnRechercheActionPerformed
         String recherche = JBarreRecherche.getText(); // Récupérer la valeur de la barre de recherche
         DefaultTableModel tableModel = (DefaultTableModel)tableUtilisateur.getModel();
